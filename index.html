@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chandini | Portfolio</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --bg:#0f172a;
+  --text:#e5e7eb;
+  --card:#1e293b;
+  --accent:#38bdf8;
+}
+.light{
+  --bg:#f8fafc;
+  --text:#020617;
+  --card:#e5e7eb;
+  --accent:#0284c7;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  scroll-behavior:smooth;
+  transition:0.3s;
+}
+
+/* NAVBAR */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:15px 60px;
+  background:var(--bg);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+}
+
+nav h2{color:var(--accent);}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:22px;
+}
+
+nav a{
+  color:var(--text);
+  text-decoration:none;
+  font-size:0.95rem;
+}
+nav a:hover{color:var(--accent);}
+.toggle{cursor:pointer}
+
+/* HERO */
+.hero{
+  min-height:90vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero h1{font-size:3.2rem;}
+.hero span{color:var(--accent);}
+.hero p{margin:15px 0;font-size:1.1rem;}
+
+.btn{
+  margin-top:20px;
+  padding:10px 28px;
+  background:var(--accent);
+  color:#0f172a;
+  border:none;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:600;
+  text-decoration:none;
+  display:inline-block;
+}
+
+
+/* SECTIONS */
+section{padding:90px 20px;}
+.container{max-width:1000px;margin:auto;}
+
+h2{
+  text-align:center;
+  margin-bottom:40px;
+  color:var(--accent);
+}
+
+/* ANIMATION */
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+}
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+  transition:0.6s ease;
+}
+
+/* CONTENT */
+.about-text,
+.achievement-text{
+  text-align:center;
+  line-height:1.8;
+  max-width:850px;
+  margin:auto;
+}
+
+.skill-box,.card{
+  background:var(--card);
+  padding:22px;
+  border-radius:10px;
+  margin-bottom:18px;
+}
+
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;
+}
+
+/* CONTACT */
+.contact{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  flex-wrap:wrap;
+}
+
+.contact a{
+  text-align:center;
+  text-decoration:none;
+  color:var(--text);
+}
+.contact i{
+  font-size:2.2rem;
+  color:var(--accent);
+  margin-bottom:8px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:#020617;
+  font-size:0.9rem;
+}
+
+/* ---------- Mobile Responsive Design ---------- */
+@media (max-width: 768px) {
+
+  nav {
+    padding: 15px 20px;
+  }
+
+  nav ul {
+    gap: 15px;
+    font-size: 14px;
+  }
+
+  .hero {
+    padding: 120px 20px 60px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+    line-height: 1.3;
+  }
+
+  .hero p {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .btn {
+    padding: 10px 22px;
+    font-size: 14px;
+  }
+
+  section {
+    padding: 60px 20px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .skills .card,
+  .projects .card,
+  .contact-icons a {
+    width: 100%;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-icons {
+    gap: 20px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .hero p {
+    font-size: 13px;
+  }
+
+  nav ul {
+    display: none; /* optional: hide menu on very small screens */
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h2>Portfolio</h2>
+  <ul>
+    <li><a href="#about" onclick="showSection('about')">About</a></li>
+    <li><a href="#skills" onclick="showSection('skills')">Skills</a></li>
+    <li><a href="#projects" onclick="showSection('projects')">Projects</a></li>
+    <li><a href="#mini-projects" onclick="showSection('mini-projects')">Mini Projects</a></li>
+    <li><a href="#achievements" onclick="showSection('achievements')">Achievements</a></li>
+    <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+    <li class="toggle" onclick="toggleTheme()">🌙</li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <h1 class="reveal active">Hi, I'm <span>Chandini</span></h1>
+    <p class="reveal active">ECE Final Year | Aspiring Engineer</p>
+    <a href="Mummidi_Naga_Chandini_Resume.pdf" target="_blank" class="btn reveal active">
+  Download Resume
+</a>
+
+
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <h2 class="reveal">About Me</h2>
+    <p class="about-text reveal">
+      I am a final-year Electronics and Communication Engineering student with a strong
+      interest in both core electronics and software development. I enjoy working on
+      real-world projects that combine problem-solving with practical implementation.
+      I am motivated, adaptable, and continuously learning to build a strong foundation
+      for a professional engineering career.
+    </p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <h2 class="reveal">Skills</h2>
+    <div class="skill-box reveal">HTML – Building structured, semantic, and accessible web pages</div>
+    <div class="skill-box reveal">CSS – Designing responsive layouts with modern UI styling</div>
+    <div class="skill-box reveal">JavaScript – Implementing interactivity and basic application logic</div>
+    <div class="skill-box reveal">Java & C – Learning programming fundamentals and logical thinking</div>
+    <div class="skill-box reveal">Core ECE – Embedded systems, sensors, microcontrollers, and IoT basics</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <h2 class="reveal">Projects</h2>
+    <div class="projects">
+
+      <div class="card reveal">
+        <h3>Social Media Profile UI (Instagram-like Interface)</h3>
+        <p>
+          Designed and developed a responsive social media profile interface that
+          visually represents a real-world platform. The project includes profile
+          details, user bio, highlights section, and reels layout to closely simulate
+          an actual social media experience. This project strengthened my understanding
+          of frontend structure, responsive design, and UI consistency using HTML, CSS,
+          and JavaScript.
+        </p>
+      </div>
+
+      <div class="card reveal">
+        <h3>Accident Detection and Alerting System</h3>
+        <p>
+          Developed a safety-focused system that detects accidents using sensor inputs
+          and automatically sends alert notifications to predefined emergency contacts.
+          The project aims to reduce response time during emergencies and provided me
+          hands-on experience with sensors, embedded systems, and real-time problem-solving.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MINI PROJECTS -->
+<section id="mini-projects">
+  <div class="container">
+    <h2 class="reveal">Mini Projects</h2>
+    <div class="projects">
+
+      <div class="card reveal">
+        <h3>Calculator Application</h3>
+        <p>
+          Created a web-based calculator capable of performing basic arithmetic
+          operations with proper input handling and real-time result display.
+          This project improved my understanding of JavaScript logic and event handling.
+        </p>
+      </div>
+
+      <div class="card reveal">
+        <h3>Snake Game</h3>
+        <p>
+          Implemented a classic snake game using JavaScript, focusing on game logic,
+          keyboard controls, collision detection, and score tracking. This project
+          strengthened my problem-solving and logical thinking skills.
+        </p>
+      </div>
+
+      <div class="card reveal">
+        <h3>Responsive Portfolio Website</h3>
+        <p>
+          Designed and developed a responsive personal portfolio website using HTML,
+          CSS, and JavaScript to showcase projects, skills, and achievements.
+          Implemented smooth animations, dark and light mode, and optimized the
+          layout for different screen sizes and devices.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="container">
+    <h2 class="reveal">Achievements</h2>
+    <p class="achievement-text reveal">
+      Recognized as Best NSS Leader for demonstrating leadership, teamwork,
+      and commitment during community service activities. Actively contributed
+      to organizing and participating in multiple social awareness and volunteer
+      programs. These experiences helped me develop communication, coordination,
+      and leadership skills.
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2 class="reveal">Contact</h2>
+    <div class="contact">
+      <a class="reveal" href="mailto:mnchandini786@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a class="reveal" href="tel:+919505999121"><i class="fas fa-phone"></i></a>
+      <a class="reveal" href="https://wa.me/919505999121" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a class="reveal" href="https://github.com/Chan1815" target="_blank" rel="noopener noreferrer">
+  <i class="fab fa-github"></i>
+</a>
+
+<a class="reveal" href="https://www.linkedin.com/in/mummidi-chandini-b88668300" target="_blank" rel="noopener noreferrer">
+  <i class="fab fa-linkedin"></i>
+</a>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Chandini | All Rights Reserved
+</footer>
+
+<script>
+/* CLICK BASED */
+function showSection(id){
+  const section=document.getElementById(id);
+  const items=section.querySelectorAll(".reveal");
+
+  items.forEach(el=>el.classList.remove("active"));
+  setTimeout(()=>{
+    items.forEach((el,i)=>{
+      setTimeout(()=>el.classList.add("active"),i*120);
+    });
+  },200);
+}
+
+/* SCROLL BASED */
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const items=entry.target.querySelectorAll(".reveal");
+      items.forEach((el,i)=>{
+        setTimeout(()=>el.classList.add("active"),i*120);
+      });
+    }
+  });
+},{threshold:0.3});
+
+document.querySelectorAll("section").forEach(sec=>observer.observe(sec));
+
+function toggleTheme(){
+  document.body.classList.toggle("light");
+}
+</script>
+
+</body>
+</html>
